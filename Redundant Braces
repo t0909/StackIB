@@ -1,0 +1,29 @@
+int Solution::braces(string A) 
+
+{
+    stack <char> s;
+    for(char x: A)
+    {
+        
+        if(x==')')
+        {
+            int count =0;
+            while(!s.empty()&& s.top()!='(')
+            {
+                s.pop();
+                // for handling the case "(a)" .......return 1 in this case.
+                count ++;
+            }
+            if(count<=1)
+            return 1;
+            // for poping this ( too
+            s.pop();
+        }
+        else
+        s.push(x);
+    }
+    return 0;
+
+}
+
+
